@@ -1,0 +1,208 @@
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+  box-shadow: var(--shadow-card);
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-medium);
+}
+
+/* IMAGE */
+.news-card__image-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.news-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-card__image {
+  transform: scale(1.04);
+}
+
+.news-card__image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-card__image-fallback-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.05em;
+  font-family: 'Inter', sans-serif;
+}
+
+.news-card__cat-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* BODY */
+.news-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  flex: 1;
+}
+
+/* META */
+.news-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.news-card__source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.news-card__time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* HEADLINE */
+.news-card__headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.news-card__headline-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.news-card__headline-link:hover {
+  color: var(--accent-gold);
+}
+
+/* EXCERPT */
+.news-card__excerpt {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* FOOTER */
+.news-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.news-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.news-card__action-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.news-card__action-btn:hover {
+  color: var(--text-primary);
+  background: var(--border-subtle);
+  border-color: var(--border-medium);
+}
+
+.news-card__action-btn.bookmarked {
+  color: var(--accent-gold);
+  background: var(--accent-gold-dim);
+  border-color: var(--bg-glass-border);
+}
+
+.news-card__read-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-gold-dim);
+  background: var(--accent-gold-dim);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.news-card__read-btn:hover {
+  background: rgba(245, 166, 35, 0.25);
+  border-color: rgba(245, 166, 35, 0.4);
+}
+
+/* COMPACT MODE */
+.news-card--compact {
+  flex-direction: row;
+  height: auto;
+}
+
+.news-card--compact .news-card__image-wrap {
+  width: 120px;
+  flex-shrink: 0;
+  aspect-ratio: 4/3;
+}
+
+.news-card--compact .news-card__body {
+  padding: 12px;
+  gap: 6px;
+}
+
+.news-card--compact .news-card__headline {
+  font-size: 0.9rem;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
