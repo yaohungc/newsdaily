@@ -8,21 +8,23 @@ import { getCachedFeed, setCachedFeed } from './cacheService';
 // allorigins.win is confirmed working and returns JSON { contents: "...xml..." }
 // ---------------------------------------------------------------------------
 const CORS_PROXIES = [
-  (url: string) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+  (url: string) => url, // Direct fetch (e.g. NYT supports CORS natively)
+  (url: string) => `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(url)}`,
   (url: string) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  (url: string) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
 ];
 
 // ---------------------------------------------------------------------------
-// Verified working RSS feed URLs (tested June 2025)
+// Verified working RSS feed URLs (tested June 2026)
 // ---------------------------------------------------------------------------
 export const RSS_FEEDS: Record<SourceKey, string> = {
   wsj:       'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
   nyt:       'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
   bbc:       'https://feeds.bbci.co.uk/news/world/rss.xml',
-  economist: 'https://www.economist.com/finance-and-economics/rss.xml',
+  economist: 'https://www.economist.com/the-world-this-week/rss.xml',
   bloomberg: 'https://feeds.bloomberg.com/markets/news.rss',
-  ft:        'https://feeds.content.dowjones.io/public/rss/mw_topstories',
-  reuters:   'https://feeds.skynews.com/feeds/rss/world.xml',
+  ft:        'https://www.ft.com/?format=rss',
+  reuters:   'https://news.google.com/rss/search?q=site:reuters.com&hl=en-US&gl=US&ceid=US:en',
   guardian:  'https://www.theguardian.com/world/rss',
 };
 

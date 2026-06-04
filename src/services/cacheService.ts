@@ -2,7 +2,7 @@ import type { FeedCache, NewsArticle } from '../types';
 
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 const CACHE_PREFIX = 'newsdaily_cache_';
-const CACHE_VERSION = 'v3'; // bump to force-clear all caches
+const CACHE_VERSION = 'v4'; // bump to force-clear all caches
 
 // On load, clear any caches from old versions
 (function clearOldVersionCaches() {
